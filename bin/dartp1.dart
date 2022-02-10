@@ -26,7 +26,7 @@ void main() {
   // Data types are
 //=============================================================================
 
-// Numbers : int, doub;e
+// Numbers : int, double
 // string
 // booleans
 // Lists Arrays
@@ -48,6 +48,12 @@ void main() {
   String s2 = "Male";
   String s3 = 'he\'s Genius'; // use \ if you use (') & not (")
   String s4 = "he\'s Genius";
+
+  String s5 = """You are doing well
+  This is yours
+  Dart is easy to learn""";
+
+  print(s5);
 
 //=============================================================================
 // String Inrepolation
@@ -92,6 +98,7 @@ void main() {
 // don't rush you will learn about classes later
 
 // classes cannot be declared inside a function in Dart
+// close the functrio
 class Area {
   final color = 'green';
   static const PN = 3.14; // only static field can be declared as const within
@@ -99,6 +106,131 @@ class Area {
 }
 
 //=============================================================================
+// 5 Hours break after pomodoro
+//=============================================================================
+
+//=============================================================================
 // Control Flow Statements
 //=============================================================================
+
+// If and Else Conditional Statements
+//make your functions understandable by naming them in a good way
+void learnCondStat() {
+  var salary = 2000;
+
+// if your salary exceeds 2000$ print 1, if not print what is after else
+// else is otherwise
+  if (salary > 2000) {
+    print("You have a salary more than 2000 dollars");
+  } else {
+    print("You need to work hard");
+  }
+
+// If ELSE IF ladder statements
+
+  var mark = 20;
+
+  if (mark >= 20 && mark > 19) {
+    // if right print A+
+    print("Your got an A+");
+  } else if (mark >= 16 && mark < 18) {
+    // if not A+ right print A
+    print("Your got an A");
+  } else if (mark >= 14 && mark < 16) {
+    // if not A right print B+
+    print("Your got a B+");
+  } else if (mark >= 12 && mark < 14) {
+    // if not B+ right print B
+  } else {
+    print('You failed'); // if nothing is true print failed
+  }
+}
+
+//=============================================================================
+// 1-Conditional Expressions
+//=============================================================================
+// it is the same as if statement but shorter => 1 line code
+void learnCondExpr() {
+  int a = 1;
+  int b = 3;
+
+  if (a > b) {
+    print("$a is bigger");
+  } else {
+    print("$b is bigger");
+  }
+// or ==================================================
+  a > b ? print('$a is bigger') : print('$b is bigger');
+  // condition ? expr1 : expr2 ;
+  // if condition is true, print expr1 otherwise evaluates and return to expr2
+}
+
+//=============================================================================
+// This conditional statement is for variables without value => Null
+void learnCondExprBetter() {
+  int a = 2;
+  int b = 4;
+
+  // use ''Ctrl+Shift +K'' to delete a whole line
+  // give the type a value but keep it null
+  int smallNumber;
+
+  if (a > b) {
+    smallNumber = a;
+  } else {
+    smallNumber = b;
+  }
+
+  print("$smallNumber is smaller");
+  // ==================  better way to make it shorter   =======================
+  int smallNumberr = a > b ? a : b;
+  print("$smallNumberr is smaller");
+//=============================================================================
+// 2 - Conditional Expressions
+//=============================================================================
+
+// expr1 ?? expr2
+// if 1 is not null, return it's value, otherwise, evaluates and return expr2
+//--------------------------------------------------------------------  value
+  String name = 'Yahia';
+
+  String userName = name ?? "Guest User";
+  print(userName);
+  //if the user typed a name print it, otherwise name give him Guest user name
+}
+
+//=============================================================================
+// SWITCH and CASE conditional statements
+//=============================================================================
+// Switch and case is like if else statement
+void swtchCase() {
+  var grade = 'A';
+
+// use END on keyboard to go the end of the line
+// SWITCH CASE variables can only be Int and Strings
+  switch (grade) {
+    case 'A':
+      print('Excellent, You got an A');
+      break;
+
+    case 'B':
+      print('Very Good, You got an A');
+      break;
+
+    case 'C':
+      print('Good, But work harder');
+      break;
+
+    default:
+      print('You have failed');
+  }
+}
+
+// ============================================================================
+// IF & ELSE IF => Analyze & execute 1 True statement, best for not many
+// SWITCH & CASE => Analyze & execute all the true statements, best for many
+// ============================================================================
+
+
+//=========================== Taking a Break ===================================
 
