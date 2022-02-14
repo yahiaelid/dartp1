@@ -1,6 +1,8 @@
 // import 'package:dartp1/dartp1.dart' as dartp1;
 
 // this is a print statement
+// import 'dart:ffi';
+
 void main() {
   // Don't exceed the line below while writing code on dart.
   //============================================================================
@@ -21,7 +23,6 @@ void main() {
 
   print(footSize);
   print(ages);
-
 //=============================================================================
   // Data types are
 //=============================================================================
@@ -40,7 +41,7 @@ void main() {
 //=============================================================================
 // literals are the value that is assigned to variable
   var isAged = false; // false is a literal and a vlaue
-  String mynamed = "Yahia"; //Yahia is a literal and a vlaue
+  String myNameIs = "Yahia"; //Yahia is a literal and a vlaue
 //=============================================================================
 
 // way to define String literals in Dart
@@ -59,39 +60,86 @@ void main() {
 // String Inrepolation
 //=============================================================================
 
-// Don't > ("My name is $name") === Don't > ("My name is" + name)
+  // Don't > ("My name is $name") === Don't > ("My name is" + name)
   String callme = "yamix";
   print("my name is $callme"); // it is by declaring the $identifier
-  print("The Number is ${callme.length}"); // see the length of variable value
-// prints 5
+  print("The Number is of letters in my name is ${callme.length}");
+  // see the length of variable value
+  // prints 5
 
-// Interpolation can be applied to => int,double & bool values
+  // Interpolation can be applied to => int,double & bool values
   int l = 39;
   int n = 12;
 
   print("the sum of $l and $n is ${l + n}"); // close brackets on 2 values
 
-//=============================================================================
-// Defining Cosntants using 'final' and 'const'
-//=============================================================================
+  //===========================================================================
+  // Defining Cosntants using 'final' and 'const'
+  //============================================================================
 
-// you can never change the value of the identifier when you use them
+  // you can never change the value of the identifier when you use them
 
-// final can be set on runtime & compile-time
-// const can be used set on compile time only
+  // final can be set on runtime & compile-time
+  // const can be used set on compile time only
 
 // run-time is when you run the program like clicking a button
 // compile-time during the translation of the source code to binary code 1 & 0's
 // compilation is when you translate the code to machine language to be executed
 
-// final keyword
+  // final keyword
   final String countryName = 'Morroco'; // Defining the Data Type is optional
   final cityName = 'Casablanca';
 
 // const keyword
   const double population = 3.15; // Defining the Data Type is optional
   const decades = 5;
+
+  // ===========================================================================
+  // Functions - functions executed in main
+  // ===========================================================================
+  // this is function executed inside void main
+
+  //myNetWorth can be used again
+  // reassigning Funct(findMyMoney) to ID(myNetWorth)
+  // findMyMoney (pocket + wallet+ savings values)
+
+  int myNetWorth = findMyMoney(500, 300, 250);
+  print("i have $myNetWorth\$"); // my networth
+
+  int hisNetWorth = findhisMoney(8900, 510); //His net worth
+  print("My dad have $hisNetWorth\$");
+
+  findHerMoney(410, 20); // her net networth
+  // don't use (=) when not assigning function again
+} // this is void main
+
+// ============================================================================
+//  Functions - function but created outside main
+// ============================================================================
+int findMyMoney(int pocket, int wallet, int savings) {
+  int totalMoney = pocket + wallet + savings;
+  return totalMoney;
+  //returning the sum of ID-(totalMoney) to Funct-(findMyMoney)
 }
+
+void findHerMoney(int pocket, int sac) => print("My Mom Has ${pocket + sac}\$");
+
+int findhisMoney(
+  int pocket,
+  int wallet,
+) => // make the code shorter with fat arrow =>
+    pocket + wallet; // no need create another ID to return a value
+
+// ============================================================================
+// Optional Position Parameter
+// ============================================================================
+
+// ============================================================================
+// ============================================================================
+// ============================================================================
+// ============================================================================
+
+// ============================================================================
 
 //  Instance variable can be 'final' but cannot be 'const'
 //  Instance variable are variables declared inside a class
@@ -192,11 +240,19 @@ void learnCondExprBetter() {
 // expr1 ?? expr2
 // if 1 is not null, return it's value, otherwise, evaluates and return expr2
 //--------------------------------------------------------------------  value
-  String name = 'Yahia';
+  String? name = null;
 
   String userName = name ?? "Guest User";
   print(userName);
   //if the user typed a name print it, otherwise name give him Guest user name
+}
+
+void nulaVee(String? name) {
+  String? name;
+  String guestUser = 'Guest User';
+
+  String userName = name ?? guestUser;
+  print(userName);
 }
 
 //=============================================================================
@@ -207,7 +263,8 @@ void swtchCase() {
   var grade = 'A';
 
 // use END on keyboard to go the end of the line
-// SWITCH CASE variables can only be Int and Strings
+// SWITCH CASE variables can only be Integers and Strings
+// only Int and String
   switch (grade) {
     case 'A':
       print('Excellent, You got an A');
@@ -231,6 +288,86 @@ void swtchCase() {
 // SWITCH & CASE => Analyze & execute all the true statements, best for many
 // ============================================================================
 
-
 //=========================== Taking a Break ===================================
 
+// ============================================================================
+//  5.1 Loops and iterators
+// ============================================================================
+// loops is about printing the value reapeatly with one line of code
+// can be executed only when the condition is true
+
+// ============================================================================
+// Foor Loop
+// ============================================================================
+
+void learnForLoop() {
+  // find numbers between 0 and 5
+  for (var i = 0; i < 5; i++) {
+    print("Hello"); // This is a definite loop
+  }
+
+// for (initializer; condition; increament i++ /decreament i--)
+
+  // yes => true => print => i++ => i=2 repeat until condition applies then stop
+  for (var i = 1; i <= 5; i++) {
+    // find even numbers between 1 to 10
+    if (i % 2 == 0) {
+      // apply the loop only if this value is true
+      print("Hello");
+    } // This is a definite loop
+  }
+
+  // for in loop
+  List cititesList = ["Rabat", "Casa", "Fes", "Safi"];
+
+  // prinitng all the citites on the list
+  // city is 1 value in citieslist
+  // lists holds data with same variables so it is not repeated
+  for (var city in cititesList) {
+    print(city);
+  }
+}
+
+// ============================================================================
+//  While Loop
+// ============================================================================
+
+void learnWhileLoop() {
+  int i = 3; // Counter Variable
+
+  while (i < 4) {
+    // condition check in the start on while loop
+    // condition check => Execute => increment
+    print("Hello");
+    i++; // increament the counter
+  }
+}
+
+// ============================================================================
+//  Do While loop
+// ============================================================================
+
+void learnDoWhileLoop() {
+  var n = 5;
+  do {
+    print("n is smaller than 3"); // => Execute => increment => condition check
+    n++;
+  } while (n < 3); // condition check at the end on do while loop
+}
+
+// ============================================================================
+//  Break for loops
+// ============================================================================
+void learnLoopBreaks() {
+  for (var i = 1; i <= 5; i++) {
+    if (i == 3) {
+      break; // Stop the loop when you reach 3
+
+      print("Hello");
+    }
+  }
+}
+
+// ============================================================================
+//  Continue for loops
+// ============================================================================
