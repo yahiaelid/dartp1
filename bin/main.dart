@@ -3,6 +3,8 @@
 // this is a print statement
 // import 'dart:ffi';
 
+import 'dart:io';
+
 void main() {
   // Don't exceed the line below while writing code on dart.
   //============================================================================
@@ -109,8 +111,12 @@ void main() {
   int hisNetWorth = findhisMoney(8900, 510); //His net worth
   print("My dad have $hisNetWorth\$");
 
-  findHerMoney(410, 20); // her net networth
+  int herNetWorth = findHerMoney(410, 20); // her net networth
   // don't use (=) when not assigning function again
+
+  // total networth using
+  int ourNetWorth = findOurMoney(hisNetWorth, herNetWorth, myNetWorth);
+  print("our networth is $ourNetWorth");
 } // this is void main
 
 // ============================================================================
@@ -122,13 +128,23 @@ int findMyMoney(int pocket, int wallet, int savings) {
   //returning the sum of ID-(totalMoney) to Funct-(findMyMoney)
 }
 
-void findHerMoney(int pocket, int sac) => print("My Mom Has ${pocket + sac}\$");
+int findHerMoney(int pocket, int sac) => pocket + sac;
+// void findHerMoney(int pocket, int sac) => print("My Mom Has ${pocket + sac}\$");
 
 int findhisMoney(
   int pocket,
   int wallet,
 ) => // make the code shorter with fat arrow =>
     pocket + wallet; // no need create another ID to return a value
+
+// total networth of my family
+int findOurMoney(
+  int hisNetWorth,
+  int herNetWorth,
+  int myNetWorth,
+) {
+  return herNetWorth + hisNetWorth + myNetWorth;
+}
 
 // ============================================================================
 // Optional Position Parameter
@@ -240,7 +256,7 @@ void learnCondExprBetter() {
 // expr1 ?? expr2
 // if 1 is not null, return it's value, otherwise, evaluates and return expr2
 //--------------------------------------------------------------------  value
-  String? name = null;
+  String? name;
 
   String userName = name ?? "Guest User";
   print(userName);
@@ -358,16 +374,64 @@ void learnDoWhileLoop() {
 // ============================================================================
 //  Break for loops
 // ============================================================================
+
 void learnLoopBreaks() {
   for (var i = 1; i <= 5; i++) {
-    if (i == 3) {
-      break; // Stop the loop when you reach 3
-
-      print("Hello");
-    }
+    if (i == 3) break; // Stop the loop when you reach 3
+    print("Hello");
   }
 }
 
 // ============================================================================
 //  Continue for loops
 // ============================================================================
+
+void players() {
+  int players = 200;
+  for (players = 200; players >= 1; players--) {
+    if (players == 100) continue; // when you reach 100 skip it then continue
+    print(players); // if you switch print with if 100 will be printed
+  }
+}
+
+// ============================================================================
+//  Continue for loops
+// ============================================================================
+
+void operationOnNums() {
+  int a = 10;
+  print(a.isFinite); // true = 10.0
+
+  double b = 10 / 0; // false = cannot devide by 0 // b.isInFinite = True
+  print(b.isFinite);
+
+  int c = -10;
+  print(c.isNegative); // true
+
+  int d = 10;
+  print(d.sign); // if d positive prints 1 if negative prints -1
+
+  int e = 10;
+  print(e.isEven); // Even is % = 0
+
+  int f = 10;
+  print(f.isOdd); // Odd is % != 0
+
+  int j = -10;
+  print(j.abs()); // turn negative into positive
+
+  double h = 10.4;
+  print(h.ceil()); // make it 11 remove ,
+
+  int i = -10;
+  print(i.compareTo(5)); // 5 > -10 ? -1 : 1 . // -10 = -10 ? prints 0 .
+
+  double g = 5.774874;
+  print(i.floor()); // truns any numer into integer and ignore the . or i.toInt
+
+  double k = 5.774874;
+  print(i.round()); // truns any numer into integer and ignore the .
+
+  String m = '5';
+  print(num.parse(m)); // turn String to Int
+}
