@@ -100,23 +100,26 @@ void main() {
   // Functions - functions executed in main
   // ===========================================================================
   // this is function executed inside void main
+  // FUNCTIONS holds logic and prevents the repetition of the code for logics
+  // you use functions only when you want to use the logic again
+  // Perameters holds datatypes with it's value
 
   //myNetWorth can be used again
   // reassigning Funct(findMyMoney) to ID(myNetWorth)
   // findMyMoney (pocket + wallet+ savings values)
 
-  int myNetWorth = findMyMoney(500, 300, 250);
-  print("i have $myNetWorth\$"); // my networth
+  int myNetWorth = findMyMoney(500, 300, 250); // a+b+c
 
-  int hisNetWorth = findhisMoney(8900, 510); //His net worth
-  print("My dad have $hisNetWorth\$");
+  int hisNetWorth = findhisMoney(8900, 510); //His net worth 8900 + 510
 
   int herNetWorth = findHerMoney(410, 20); // her net networth
   // don't use (=) when not assigning function again
 
-  // total networth using
-  int ourNetWorth = findOurMoney(hisNetWorth, herNetWorth, myNetWorth);
-  print("our networth is $ourNetWorth");
+  // ourNetWorth have the value of all functions
+  // functions used to hold the logic
+  // return in functions used to hold a value of the logic
+
+  int ourNetWorth;
 } // this is void main
 
 // ============================================================================
@@ -143,7 +146,8 @@ int findOurMoney(
   int herNetWorth,
   int myNetWorth,
 ) {
-  return herNetWorth + hisNetWorth + myNetWorth;
+  int ourNetWorth = hisNetWorth + herNetWorth + myNetWorth;
+  return ourNetWorth;
 }
 
 // ============================================================================
@@ -434,4 +438,106 @@ void operationOnNums() {
 
   String m = '5';
   print(num.parse(m)); // turn String to Int
+}
+
+// ============================================================================
+//  Lists (Arrays)
+// ============================================================================
+
+// List can hold names & numbers
+// we can create a list inside a list
+
+void listat2() {
+  List names = [
+    "Digi",
+    ["1", "2"],
+    "Yamix",
+    "Fairy"
+  ]; // 0, 1, 3
+  print(names[1][1]); // firs 1 for the list second 1 for the first list inside
+}
+
+void listat() {
+  List names = ["Digi", 1, "Yamix", "Fairy"]; // 0, 1, 3
+  print(names[0]); // Lists start with 0 for the first value
+}
+
+void listat3() {
+  List names = ["Digi", "Yamix", "Fairy"]; // 0, 1, 3
+  names[0] = "Omar"; // make 0 in list to this literal
+  names.add("Yahia");
+  names.add(5);
+
+  print(names.reversed); // print the names reveresd
+  print(names.length); // how many values are in the list
+  print(names.isNotEmpty); // is the list empty
+  print(names.last); // print last value
+  print(names.first); // print first value
+  print(names.reversed.toList());
+
+  // print names to list reversed
+  // print(names[0]); // Lists start with 0 for the first value
+
+  // to print all the names we will use for loop
+  //  print(names.length); how much values we have in the list
+
+  for (int x = 0; x < names.length; x++) {
+    print(names); // print all the values in the list 1, 2 ,3 ,4 ,5
+
+  }
+
+  names.forEach((name) {
+    // print every name in the names list
+    print(name);
+  });
+
+  // add & insert methods
+
+  List ages = [15, 13];
+
+  ages.add([3, 2]); // add list inside list
+  print(ages[2]); // print second list inside the list
+
+  ages.addAll([3, 2]); // add values inside list to the list
+  print(ages[2]); // prints 3 that you added inside the list
+
+  ages.insert(0, 3); // insert 3 on the start of the list [0, ...]
+  print(ages[0]); // output is [3,15,13]
+
+  ages.insertAll(0, [4, 5, 3]); // insert list on the start [4,5,3 ...]
+  print(ages[0]); // output is [4,5,3,15,13]
+
+  List medals = ["Bronze", "Silver", "Gold", "Platinium"];
+  medals.replaceRange(0, 1,
+      ["Plastic", "Wooden"]); //replace fron "Bronze" to "Silver" with this
+
+  medals.removeAt(2); // remove "Gold" fron the list
+  // or
+  medals.remove("Gold"); // remove "Gold" fron the list
+  // index is the 0 1 or 2 that declares the placement of the value in the list
+  medals.removeRange(0, 2); // remove from "Bronze" to "Gold" fron the list
+
+// ============================================================================
+//  Map
+// ============================================================================
+
+//Map info = {"Key" : value};
+  Map info = {
+    "name": "Yahia",
+    "age": 20,
+  };
+  print(info); // output prints map
+  print(info['name']); // Prints the value in the key
+  print(info.keys); // Prints keys {name, age, price}
+
+  info.forEach((a, b) {
+    // a is key = b is value
+    print(a); // print keys inside the map
+    print(b); // print values inside the map
+  });
+
+  // you can create list inside map inside list inside ..
+
+  // set prevents repetition inside the map
+  Set carSize = {"Small", "Big"}; // SEt like MAP but holds only keys not values
 }
